@@ -1,13 +1,36 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import reportWebVitals from "./reportWebVitals";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+import "bootstrap/dist/css/bootstrap.min.css";
+import App from "./components/App";
+import { IntlProvider } from "react-intl";
+
+import localeEsMessages from "./locales/es";
+import localeEnMessages from "./locales/en";
+
+// Obtener el idioma del navegador
+const browserLanguage = navigator.language || navigator.languages[0];
+
+// Cargar los mensajes correspondientes
+let messages;
+switch (browserLanguage) {
+  case "es-ES":
+    messages = localeEsMessages;
+    break;
+  case "en-US":
+  default:
+    messages = localeEnMessages;
+    break;
+}
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    <IntlProvider locale={browserLanguage} messages={messages}>
+      <App />
+    </IntlProvider>
   </React.StrictMode>
 );
 
