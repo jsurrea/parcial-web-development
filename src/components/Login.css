@@ -1,0 +1,39 @@
+.login-container {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url("../../public/background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.login-filter {
+    backdrop-filter: blur(0px);
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-modal {
+    width: 500px;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+}
+
+.login-modal Form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.login-modal button {
+    width: 200px;
+}
