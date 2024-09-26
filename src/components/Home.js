@@ -50,15 +50,15 @@ function Home() {
     data.best_swimming_dist,
   ];
   const imageUrls = [
-    "https://media.istockphoto.com/id/1402134774/photo/professional-road-cyclist-on-a-training-ride.jpg?s=612x612&w=0&k=20&c=CB2o_DXMgH15MLa1CEqWwZVtVb3rpRgejV3UFnUwF_U=",
+    "https://dec.ny.gov/sites/default/files/styles/hero_background/public/2023-11/BicyclingCW7R0235.jpg?h=2b8ee7a2&itok=o36O23TT",
     "https://www.sundried.com/cdn/shop/articles/c27ddca5b9550a6940dfef2581b6c38d_1100x.jpg?v=1557744738",
     "https://plus.unsplash.com/premium_photo-1664475361436-e37f6f2ba407?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8c3dpbW1pbmd8ZW58MHx8MHx8fDA%3D",
   ];
 
   return (
     <>
-      <nav className="navbar navbar-light bg-light">
-        <div>
+      <nav className="navbar navbar-light bg-light" id="navbar">
+        <div className="navbar-container">
           <img
             src={data.profile_image}
             width="30"
@@ -66,28 +66,28 @@ function Home() {
             className="d-inline-block align-top"
             alt=""
           />
-          <span className="navbar-brand mb-0 h1">{data.full_name}</span>
+          <span className="navbar-brand m-0 h1">{data.full_name}</span>
         </div>
-        <div>
-          <span className="navbar-brand mb-0 h1">Swim</span>
-          <span className="navbar-brand mb-0 h1">
+        <div className="navbar-container">
+          <span className="navbar-brand m-0 h1">Swim</span>
+          <span className="navbar-brand m-0 h1">
             {formatTime(data.best_swimming_time)}
           </span>
         </div>
-        <div>
-          <span className="navbar-brand mb-0 h1">Run</span>
-          <span className="navbar-brand mb-0 h1">
+        <div className="navbar-container">
+          <span className="navbar-brand m-0 h1">Run</span>
+          <span className="navbar-brand m-0 h1">
             {formatTime(data.best_running_time)}
           </span>
         </div>
-        <div>
-          <span className="navbar-brand mb-0 h1">Cycle</span>
-          <span className="navbar-brand mb-0 h1">
+        <div className="navbar-container">
+          <span className="navbar-brand m-0 h1">Cycle</span>
+          <span className="navbar-brand m-0 h1">
             {formatTime(data.best_cycling_time)}
           </span>
         </div>
       </nav>
-      <Container className="home-container">
+      <div className="home-container">
         {Array.from({ length: 3 }).map((_, index) => (
           <Sport
             key={index}
@@ -99,9 +99,12 @@ function Home() {
             handleShow={handleShow}
           ></Sport>
         ))}
-      </Container>
-      <Modal show={show} onHide={handleClose} centered>
+      </div>
+      <Modal show={show} onHide={handleClose} centered className="modal-sports">
         <SportCard {...show}></SportCard>
+        <button className="btn btn-primary" onClick={handleClose}>
+          Close
+        </button>
       </Modal>
     </>
   );
@@ -109,7 +112,7 @@ function Home() {
 
 function Sport({ sport, imageUrl, handleShow, city, dist, time }) {
   return (
-    <div>
+    <div className="sport-container">
       <h2>{sport}</h2>
       <div className="sports">
         {Array.from({ length: 10 }).map((_, index) => (
@@ -148,7 +151,7 @@ function SportCard({ sport, city, dist, time, imageUrl, handleShow }) {
         <Card.Title>{sport} Session</Card.Title>
         <Card.Text>Recorrido alrededor de la bahía de {city}</Card.Text>
         <Card.Text>
-          {dist} - {time}
+          {dist}K - {formatTime(time)}
         </Card.Text>
       </Card.ImgOverlay>
     </Card>
