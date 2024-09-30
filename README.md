@@ -10,6 +10,7 @@ Este proyecto fue desarrollado utilizando **React** para la construcción de la 
 4. [Despliegue](#despliegue)
 5. [Reporte de Desarrollo](#reporte-de-desarrollo)
 6. [Tecnologías Utilizadas](#tecnologías-utilizadas)
+7. [Interfaz Gráfica](#interfaz-gráfica)
 
 ## Requerimientos
 
@@ -109,3 +110,10 @@ Durante el desarrollo de este parcial se tomaron las siguientes decisiones clave
 - **react-intl**: Utilizado para gestionar la internacionalización de la aplicación.
 - **gh-pages**: Herramienta para desplegar la aplicación en GitHub Pages.
 - **Mockaroo API**: Para generar datos ficticios en la aplicación.
+
+## Interfaz Gráfica
+
+<img width="1728" alt="image" src="https://github.com/user-attachments/assets/33fca1a7-785b-4d0b-a729-f7bff4eef380">
+
+<img width="1728" alt="image" src="https://github.com/user-attachments/assets/b7b244ef-6d23-402a-b9fe-630ec2e33fb7">
+
