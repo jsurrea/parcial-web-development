@@ -1,6 +1,21 @@
 {
-    "post_count": "Posts ",
-    "follower_count": "Followers ",
-    "following_count": "Following ",
-    "today_is": "Today is "
-}
+    "login.title": "Log in",
+    "login.email": "Email",
+    "login.password": "Password",
+    "login.password.error": "Password must be at least 8 characters long",
+    "login.email.error": "Invalid email address",
+    "login.button": "Log in",
+    
+    "navbar.swim": "Swim",
+    "navbar.run": "Run",
+    "navbar.cycle": "Cycle",
+  
+    "sport.cycling": "Cycling",
+    "sport.running": "Running",
+    "sport.swimming": "Swimming",
+    "sport.session": "{sport} Session",
+    "sport.description": "Route around the bay of {city}",
+    
+    "modal.close": "Close"
+  }
+  

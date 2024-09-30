@@ -1,6 +1,21 @@
 {
-    "post_count": "Publicaciones ",
-    "follower_count": "Seguidores ",
-    "following_count": "Siguiendo ",
-    "today_is": "Hoy es "
-}
+    "login.title": "Iniciar sesión",
+    "login.email": "Correo electrónico",
+    "login.password": "Contraseña",
+    "login.password.error": "La contraseña debe tener al menos 8 caracteres",
+    "login.email.error": "Correo electrónico no válido",
+    "login.button": "Iniciar sesión",
+    
+    "navbar.swim": "Nadar",
+    "navbar.run": "Correr",
+    "navbar.cycle": "Ciclismo",
+  
+    "sport.cycling": "Ciclismo",
+    "sport.running": "Correr",
+    "sport.swimming": "Nadar",
+    "sport.session": "Sesión de {sport}",
+    "sport.description": "Recorrido alrededor de la bahía de {city}",
+    
+    "modal.close": "Cerrar"
+  }
+  

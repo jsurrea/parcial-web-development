@@ -1,0 +1,21 @@
+{
+    "login.title": "Se connecter",
+    "login.email": "Adresse électronique",
+    "login.password": "Mot de passe",
+    "login.password.error": "Le mot de passe doit comporter au moins 8 caractères",
+    "login.email.error": "Adresse électronique non valide",
+    "login.button": "Se connecter",
+    
+    "navbar.swim": "Nager",
+    "navbar.run": "Courir",
+    "navbar.cycle": "Cyclisme",
+  
+    "sport.cycling": "Cyclisme",
+    "sport.running": "Course",
+    "sport.swimming": "Natation",
+    "sport.session": "Session de {sport}",
+    "sport.description": "Parcours autour de la baie de {city}",
+    
+    "modal.close": "Fermer"
+  }
+  

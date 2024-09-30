@@ -9,6 +9,8 @@ import { IntlProvider } from "react-intl";
 
 import localeEsMessages from "./locales/es";
 import localeEnMessages from "./locales/en";
+import localeFrMessages from "./locales/fr";
+import localeItMessages from "./locales/it";
 
 // Obtener el idioma del navegador
 const browserLanguage = navigator.language || navigator.languages[0];
@@ -17,9 +19,19 @@ const browserLanguage = navigator.language || navigator.languages[0];
 let messages;
 switch (browserLanguage) {
   case "es-ES":
+  case "es":
     messages = localeEsMessages;
     break;
+  case "fr-FR":
+  case "fr":
+    messages = localeFrMessages;
+    break;
+  case "it-IT":
+  case "it":
+    messages = localeItMessages;
+    break;
   case "en-US":
+  case "en":
   default:
     messages = localeEnMessages;
     break;
