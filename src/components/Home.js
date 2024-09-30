@@ -1,9 +1,6 @@
-import { Container } from "react-bootstrap";
 import "./Home.css";
 import { useEffect, useState } from "react";
 import Modal from "react-bootstrap/Modal";
-import { Link } from "react-router-dom";
-import { FormattedMessage } from "react-intl";
 import Card from "react-bootstrap/Card";
 
 function formatTime(minutes) {
@@ -12,7 +9,7 @@ function formatTime(minutes) {
   if (minutesLeft < 10) {
     minutesLeft = `0${minutesLeft}`;
   }
-  return `${hours}:${minutesLeft}`;
+  return `${hours}:${minutesLeft}h`;
 }
 
 function Home() {
