@@ -2,11 +2,15 @@ import { useEffect, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { useNavigate } from "react-router-dom";
+import { FormattedMessage, useIntl } from "react-intl";
 import "./Login.css";
 
 function Login() {
   const [formValues, setFormValues] = useState({ email: "", password: "" });
   const [errors, setErrors] = useState({});
+  const navigate = useNavigate();
+  const intl = useIntl();
+
   const handleEmailChange = (e) => {
     setFormValues({ ...formValues, email: e.target.value });
   };
@@ -15,7 +19,6 @@ function Login() {
     setFormValues({ ...formValues, password: e.target.value });
   };
 
-  const navigate = useNavigate();
   const handleClick = () => {
     navigate("/home");
   };
@@ -23,7 +26,7 @@ function Login() {
   const validate = ({ email, password }) => {
     const errors = {};
     if (password.length < 8) {
-      errors.password = "Password must be at least 8 characters long";
+      errors.password = intl.formatMessage({ id: "login.password.error" });
     }
     if (
       !String(email)
@@ -32,7 +35,7 @@ function Login() {
           /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
         )
     ) {
-      errors.email = "Invalid email address";
+      errors.email = intl.formatMessage({ id: "login.email.error" });
     }
 
     setErrors(errors);
@@ -48,11 +51,15 @@ function Login() {
     <div className="login-container">
       <div className="login-filter">
         <div className="login-modal">
-          <h1>Log in</h1>
+          <h1>
+            <FormattedMessage id="login.title" />
+          </h1>
 
           <Form>
             <Form.Group className="mb-6" controlId="formBasicEmail">
-              <Form.Label>Email</Form.Label>
+              <Form.Label>
+                <FormattedMessage id="login.email" />
+              </Form.Label>
               <Form.Control
                 type="email"
                 onChange={handleEmailChange}
@@ -67,7 +74,9 @@ function Login() {
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formBasicPassword">
-              <Form.Label>Password</Form.Label>
+              <Form.Label>
+                <FormattedMessage id="login.password" />
+              </Form.Label>
               <Form.Control
                 type="password"
                 onChange={handlePasswordChange}
@@ -92,7 +101,7 @@ function Login() {
                 errors.password
               }
             >
-              Log in
+              <FormattedMessage id="login.button" />
             </Button>
           </Form>
         </div>

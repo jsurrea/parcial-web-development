@@ -2,6 +2,7 @@ import "./Home.css";
 import { useEffect, useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import Card from "react-bootstrap/Card";
+import { FormattedMessage } from "react-intl";
 
 function formatTime(minutes) {
   const hours = Math.floor(minutes / 60);
@@ -35,7 +36,7 @@ function Home() {
       .then((data) => setData(data));
   }, []);
 
-  const sports = ["Cycling", "Running", "Swimming"];
+  const sports = ["cycling", "running", "swimming"];
   const best_times = [
     data.best_cycling_time,
     data.best_running_time,
@@ -66,19 +67,25 @@ function Home() {
           <span className="navbar-brand m-0 h1">{data.full_name}</span>
         </div>
         <div className="navbar-container">
-          <span className="navbar-brand m-0 h1">Swim</span>
+          <span className="navbar-brand m-0 h1">
+            <FormattedMessage id="navbar.swim" />
+          </span>
           <span className="navbar-brand m-0 h1">
             {formatTime(data.best_swimming_time)}
           </span>
         </div>
         <div className="navbar-container">
-          <span className="navbar-brand m-0 h1">Run</span>
+          <span className="navbar-brand m-0 h1">
+            <FormattedMessage id="navbar.run" />
+          </span>
           <span className="navbar-brand m-0 h1">
             {formatTime(data.best_running_time)}
           </span>
         </div>
         <div className="navbar-container">
-          <span className="navbar-brand m-0 h1">Cycle</span>
+          <span className="navbar-brand m-0 h1">
+            <FormattedMessage id="navbar.cycle" />
+          </span>
           <span className="navbar-brand m-0 h1">
             {formatTime(data.best_cycling_time)}
           </span>
@@ -100,7 +107,7 @@ function Home() {
       <Modal show={show} onHide={handleClose} centered className="modal-sports">
         <SportCard {...show}></SportCard>
         <button className="btn btn-primary" onClick={handleClose}>
-          Close
+          <FormattedMessage id="modal.close" />
         </button>
       </Modal>
     </>
@@ -110,7 +117,9 @@ function Home() {
 function Sport({ sport, imageUrl, handleShow, city, dist, time }) {
   return (
     <div className="sport-container">
-      <h2>{sport}</h2>
+      <h2>
+        <FormattedMessage id={`sport.${sport.toLowerCase()}`} />
+      </h2>
       <div className="sports">
         {Array.from({ length: 10 }).map((_, index) => (
           <SportCard
@@ -145,8 +154,17 @@ function SportCard({ sport, city, dist, time, imageUrl, handleShow }) {
     >
       <Card.Img src={imageUrl} alt="Card image" />
       <Card.ImgOverlay>
-        <Card.Title>{sport} Session</Card.Title>
-        <Card.Text>Recorrido alrededor de la bahía de {city}</Card.Text>
+        <Card.Title>
+          <FormattedMessage
+            id="sport.session"
+            values={{
+              sport: <FormattedMessage id={`sport.${sport.toLowerCase()}`} />,
+            }}
+          />
+        </Card.Title>
+        <Card.Text>
+          <FormattedMessage id="sport.description" values={{ city }} />
+        </Card.Text>
         <Card.Text>
           {dist}K - {formatTime(time)}
         </Card.Text>
