@@ -118,7 +118,7 @@ function Sport({ sport, imageUrl, handleShow, city, dist, time }) {
   return (
     <div className="sport-container">
       <h2>
-        <FormattedMessage id={`sport.${sport.toLowerCase()}`} />
+        <FormattedMessage id={`sport.${sport}`} />
       </h2>
       <div className="sports">
         {Array.from({ length: 10 }).map((_, index) => (
@@ -158,7 +158,7 @@ function SportCard({ sport, city, dist, time, imageUrl, handleShow }) {
           <FormattedMessage
             id="sport.session"
             values={{
-              sport: <FormattedMessage id={`sport.${sport.toLowerCase()}`} />,
+              sport: <FormattedMessage id={`sport.${sport}`} />,
             }}
           />
         </Card.Title>
